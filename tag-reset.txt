@@ -1,0 +1,14 @@
+# Git Commands Guide: Stash, Reset, Checkout, and Tag
+
+
+## 1. Git Reset
+`git reset` is used to undo commits or unstage files. It has three main modes that determine what happens to your files:
+- **`git reset --soft HEAD~1`**: Moves HEAD back by one commit, but keeps your files exactly as they were, and leaves them in the Staging Area (ready to be committed again).
+- **`git reset --mixed HEAD~1`** *(Default)*: Moves HEAD back, keeps your files intact in the working directory, but unstages them. You will need to `git add` them again.
+- **`git reset --hard HEAD~1`**: **[WARNING]** Moves HEAD back and completely deletes any uncommitted changes. Your working directory will exactly match the previous commit.
+
+## 2. Git Tag
+Tags are used to mark specific, important points in your repository's history. They are most commonly used to mark release versions (e.g., v1.0.0).
+- **Lightweight Tag**: `git tag v1.0` (Creates a simple pointer to a commit).
+- **Annotated Tag**: `git tag -a v1.0 -m "First official release"` (Recommended: includes metadata like the tagger's name, email, date, and a message).
+- **Pushing Tags**: Tags are not pushed to GitHub by default. You must push them explicitly using `git push origin v1.0` or `git push origin --tags`.
